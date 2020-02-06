@@ -6,7 +6,7 @@ Criando Flash Messages com Laravel e framework front-end  Materialize 1.0 de for
 
 1. Clona o projeto: 
 ```bash
-git clone https://github.com/deyvisound/laravel_cms_lte.git
+git clone https://github.com/deyvisound/flash_messanger.git
 ```
 2. Baixa as dependências: 
 ```bash 

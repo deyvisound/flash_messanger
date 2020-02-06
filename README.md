@@ -20,4 +20,4 @@ php composer install
 
 http://localhost:8000/
 
-![](public/img/sample.png)
+<img src="public/img/sample.png" width="50" />

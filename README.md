@@ -19,3 +19,5 @@ php composer install
 *Voilà!*
 
 http://localhost:8000/
+
+![](public/img/sample.png)

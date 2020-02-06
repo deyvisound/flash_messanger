@@ -20,5 +20,5 @@ php composer install
 
 http://localhost:8000/
 
-Fixa: 
 <img src="public/img/sample.png" width="500" />
+<img src="public/img/sample2.png" width="500" />

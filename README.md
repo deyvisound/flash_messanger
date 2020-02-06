@@ -1,6 +1,9 @@
 # Flash Messanger
 Criando Flash Messages com Laravel e framework front-end  Materialize 1.0 de forma simples. 
 
+São dois os tipos de mensagens: 
+- Fixas: Como o próprio nome já diz, ficam fixas no canto superior direito
+- Diálogos: Como o mesmo estilo da fixa, porém somem após alguns segundos 
 
 ## Instalando: 
 
@@ -21,4 +24,3 @@ php composer install
 http://localhost:8000/
 
 <img src="public/img/sample.png" width="500" />
-<img src="public/img/sample2.png" width="500" />

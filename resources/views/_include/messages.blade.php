@@ -1,22 +1,26 @@
 
+
 <div class="flash-messages">
 
-	@if (session('f_sucess_msg'))
-	    <div class="card-panel green lighten-1">
-	    	{{ session('f_sucess_msg') }}
-	    </div>        
-	@endif
+	@if (session('flash_message') && session('flash_message')->mode == App\Enums\ModeMessage::FIXE)
+		@switch(session('flash_message')->type)
+		    @case(App\Enums\TypeMessenger::SUCCESS)
+		        <div class="card-panel green lighten-1">
+			    	{{ session('flash_message')->msg }}
+			    </div>  
+		        @break
 
-	@if (session('f_warning_msg'))
-	    <div class="card-panel orange lighten-1">
-	    	{{ session('f_warning_msg') }}
-	    </div>        
-	@endif
+		    @case(App\Enums\TypeMessenger::WARNING)
+		        <div class="card-panel orange lighten-1">
+			    	{{ session('flash_message')->msg }}
+			    </div>  
+		        @break
 
-	@if (session('f_error_msg'))
-	    <div class="card-panel red lighten-1">
-	    	{{ session('f_error_msg') }}
-	    </div>        
-	@endif
+		    @default
+		        <div class="card-panel red lighten-1">
+			    	{{ session('flash_message')->msg }}
+			    </div>  
+		@endswitch
+	@endif	
 
 </div>

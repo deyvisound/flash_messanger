@@ -1,25 +1,24 @@
 
-<div class="flash-messages">
+@if (session('flash_message') && session('flash_message')->mode == App\Enums\ModeMessage::TOAST)
+	@switch(session('flash_message')->type)
+	    @case(App\Enums\TypeMessenger::SUCCESS)
+	    	<script>
+		       	var htmlToast = "<div class='card-panel green lighten-1'>{{ session('flash_message')->msg }}</div>";					
+				M.toast({html: htmlToast, inDuration: 1000});	
+			</script>
+	        @break
 
-	@if (session('t_f_sucess_msg'))
-		<script>
-		  	var toastHTML = "<div class='card-panel green lighten-1'>{{ session('t_f_sucess_msg') }}</div>";
-			M.toast({html: toastHTML});		        
-		</script>
-	@endif
+	    @case(App\Enums\TypeMessenger::WARNING)
+	        <script>
+		       	var htmlToast = "<div class='card-panel orange lighten-1'>{{ session('flash_message')->msg }}</div>";					
+				M.toast({html: htmlToast, inDuration: 1000});	
+			</script>
+	        @break
 
-	@if (session('t_f_warning_msg'))
-		<script>
-		  	var toastHTML = "<div class='card-panel orange lighten-1'>{{ session('t_f_warning_msg') }}</div>";
-			M.toast({html: toastHTML});		        
-		</script>
-	@endif
-
-	@if (session('t_f_error_msg'))
-		<script>
-		  	var toastHTML = "<div class='card-panel red lighten-1'>{{ session('t_f_error_msg') }}</div>";
-			M.toast({html: toastHTML});		        
-		</script>
-	@endif
-
-</div>
+	    @default
+	        <script>
+		       	var htmlToast = "<div class='card-panel red lighten-1'>{{ session('flash_message')->msg }}</div>";					
+				M.toast({html: htmlToast, inDuration: 1000});	
+			</script>
+	@endswitch
+@endif	

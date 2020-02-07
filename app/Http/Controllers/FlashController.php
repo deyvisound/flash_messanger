@@ -3,40 +3,42 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Enums\Messenger;
+use App\Enums\TypeMessenger;
+use App\Enums\ModeMessage;
+use App\Helpers\MessengerHelper;
 
 class FlashController extends Controller
 {
     
     public function success(Request $req){
-    	$req->session()->flash(Messenger::SUCCESS, 'Task was successful!');
+    	MessengerHelper::addMessage($req, 'Task was successful!', ModeMessage::FIXE, TypeMessenger::SUCCESS);
     	return redirect()->route('home');
     }
 
     public function warning(Request $req){
-    	$req->session()->flash(Messenger::WARNING, 'Warning! You got it!');
+    	MessengerHelper::addMessage($req, 'Warning! You got it!', ModeMessage::FIXE, TypeMessenger::WARNING);
     	return redirect()->route('home');
     }
 
     public function error(Request $req){
-    	$req->session()->flash(Messenger::ERROR, 'There was an error in the task! :(');
+    	MessengerHelper::addMessage($req, 'There was an error in the task! :(', ModeMessage::FIXE, TypeMessenger::ERROR);
     	return redirect()->route('home');
     }
 
     // Toast Mensagens Materialize
 
     public function t_success(Request $req){
-    	$req->session()->flash('t_'.Messenger::SUCCESS, 'Task was successful!');
+    	MessengerHelper::addMessage($req, 'Task was successful!',  ModeMessage::TOAST, TypeMessenger::SUCCESS);
     	return redirect()->route('home');
     }
 
     public function t_warning(Request $req){
-    	$req->session()->flash('t_'.Messenger::WARNING, 'Warning! You got it!');
+    	MessengerHelper::addMessage($req, 'Warning! You got it!',  ModeMessage::TOAST, TypeMessenger::WARNING);
     	return redirect()->route('home');
     }
 
     public function t_error(Request $req){
-    	$req->session()->flash('t_'.Messenger::ERROR, 'There was an error in the task! :(');
+    	MessengerHelper::addMessage($req, 'There was an error in the task! :(', ModeMessage::TOAST, TypeMessenger::ERROR);
     	return redirect()->route('home');
     }
 }

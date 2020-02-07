@@ -67,3 +67,11 @@ footer{
 	width: 25%;
 	margin: 10px 10px 0 0;	
 }
+
+
+.toast{
+    color: #fff !important;
+    font-weight: bold !important;
+    padding: 0px;
+    height: 0px;    
+}
